@@ -1,3 +1,4 @@
+'use strict';
 import { reporters } from "mocha";
 
 var Twitter = require('twitter');

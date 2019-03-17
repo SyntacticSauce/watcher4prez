@@ -1,3 +1,4 @@
+'use strict';
 import * as express from 'express';
 import TwitterClient from './TwitterClient';
 var https = require('https');
