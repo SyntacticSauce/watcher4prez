@@ -1,5 +1,5 @@
-import * as express from 'express'
-
+import * as express from 'express';
+import { TheWatcherAIClient } from './bot/BotClient'
 class App {
   public express
 
@@ -9,13 +9,16 @@ class App {
   }
 
   private mountRoutes (): void {
-    const router = express.Router()
+    const router = express.Router();
+
     router.get('/', (req, res) => {
       res.json({
-        message: 'Hello World!'
+        message: 'welcome to the A.I!'
       })
-    })
+    });
+
     this.express.use('/', router)
+    this.express.use('/api/', new TheWatcherAIClient().routes)
   }
 }
 
