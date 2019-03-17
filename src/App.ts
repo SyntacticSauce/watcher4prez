@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { TheWatcherAIClient } from './bot/BotClient'
+import { TheWatcherAIClient } from './bot/TheWatcherAIClient'
 class App {
   public express
 
@@ -18,7 +18,7 @@ class App {
     });
 
     this.express.use('/', router)
-    this.express.use('/api/', new TheWatcherAIClient().routes)
+    this.express.use('/api/thewatcher', new TheWatcherAIClient().routes)
   }
 }
 
