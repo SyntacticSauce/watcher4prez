@@ -2,7 +2,7 @@
 import * as express from 'express';
 import { TheWatcherAIClient } from './bot/TheWatcherAIClient'
 class App {
-  public express
+  public express;
 
   constructor () {
     this.express = express()
