@@ -5,6 +5,7 @@ var Twitter = require('twitter');
 
 export default class TwitterClient {
     private client;
+    
     constructor() {
         this.client = new Twitter({
             consumer_key: process.env.consumerKey,
