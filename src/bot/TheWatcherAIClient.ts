@@ -5,7 +5,10 @@ var https = require('https');
 
 
 class TheWatcherAIClient {
+      // eslint-disable-next-line no-use-before-define
     public express;
+      // eslint-disable-next-line no-use-before-define
+
     private twitterClient;
 
     constructor() {

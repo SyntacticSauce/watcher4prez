@@ -4,7 +4,7 @@ import { reporters } from "mocha";
 var Twitter = require('twitter');
 
 export default class TwitterClient {
-    private client;
+    private client = new Twitter();  /* eslint-disable */;
     
     constructor() {
         this.client = new Twitter({

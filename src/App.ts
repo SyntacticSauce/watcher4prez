@@ -2,7 +2,8 @@
 import * as express from 'express';
 import { TheWatcherAIClient } from './bot/TheWatcherAIClient'
 class App {
-  public express
+  // eslint-disable-next-line no-use-before-define
+  public express 
 
   constructor () {
     this.express = express()
