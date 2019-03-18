@@ -15,7 +15,7 @@ class App {
 
     router.get('/', (req, res) => {
       res.json({
-        message: 'welcome to the A.I!'
+        message: 'Hello Human! Hows your day??'
       })
     });
 
