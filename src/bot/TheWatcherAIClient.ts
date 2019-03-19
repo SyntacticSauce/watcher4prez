@@ -19,10 +19,21 @@ class TheWatcherAIClient {
     private think(): Promise<String> {
         //https://www.reddit.com/r/news.json
 
+        let topics = [
+            '/r/news.json',
+            '/r/streetart.json',
+            '/r/holdmyjuicebox.json',
+            '/r/BikiniBottomTwitter.json',
+            '/r/bestofnetflix.json',
+            '/r/UpliftingNews.json'
+        ]
+
+        var randomTopics = Math.floor(Math.random() * Math.floor(topics.length));
+
         return new Promise((resolve, reject) => {
             https.get({
                 hostname: 'www.reddit.com',
-                path: '/r/news.json',
+                path: randomTopics,
                 agent: false  // Create a new agent just for this one request
             }, (res) => {
                 res.setEncoding('utf8');
