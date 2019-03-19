@@ -28,12 +28,12 @@ class TheWatcherAIClient {
             '/r/UpliftingNews.json'
         ]
 
-        var randomTopics = Math.floor(Math.random() * Math.floor(topics.length));
+        var rand = Math.floor(Math.random() * Math.floor(topics.length));
 
         return new Promise((resolve, reject) => {
             https.get({
                 hostname: 'www.reddit.com',
-                path: randomTopics,
+                path: topics[rand],
                 agent: false  // Create a new agent just for this one request
             }, (res) => {
                 res.setEncoding('utf8');
