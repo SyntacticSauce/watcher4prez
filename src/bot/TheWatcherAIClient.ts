@@ -51,7 +51,7 @@ class TheWatcherAIClient {
                     // post.title;
                     console.log(post);
                     //make sure tweets are always under 280;
-                    let thought = `#AI ${post.title} ${post.url}`;
+                    let thought = `${post.title} ${post.url}`;
                     console.log(thought);
                     // throw Error("just cz");
                     resolve(thought);
