@@ -79,7 +79,7 @@ class TheWatcherAIClient {
                     console.log('thought successful');
                     this.twitterClient.post(thought).then(res => {
                         console.log('post successful');
-
+                        resolve()
                     }, err => {
                         throw "thought error";
                     });
