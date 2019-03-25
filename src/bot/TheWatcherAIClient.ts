@@ -22,7 +22,7 @@ class TheWatcherAIClient {
         let topics = [
             '/r/news.json',
             '/r/streetart.json',
-            '/r/holdmyjuicebox.json',
+            '/r/holdmyjuicebox.json', //not pretty enough
             '/r/BikiniBottomTwitter.json',
             '/r/bestofnetflix.json',
             '/r/UpliftingNews.json'
