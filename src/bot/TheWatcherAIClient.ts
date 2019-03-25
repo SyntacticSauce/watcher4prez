@@ -5,9 +5,9 @@ var https = require('https');
 
 
 class TheWatcherAIClient {
-      // eslint-disable-next-line no-use-before-define
+    // eslint-disable-next-line no-use-before-define
     public express;
-      // eslint-disable-next-line no-use-before-define
+    // eslint-disable-next-line no-use-before-define
 
     private twitterClient;
 
@@ -58,7 +58,7 @@ class TheWatcherAIClient {
                 });
 
                 // Do stuff with response
-               
+
             });
         })
     }
@@ -72,19 +72,25 @@ class TheWatcherAIClient {
             })
         });
 
-        router.post('/', (req, res) => {
-            this.think().then(thought => {
-                console.log('thought successful');
-                this.twitterClient.post(thought).then(res=>{
-                    console.log('post successful');
-                    res.send('twitter status updated');
-                }, err=>{
-                    throw "thought error";
+        router.post('/', async (req, res) => {
+
+            let thinkPromise = new Promise((resolve, reject) => {
+                this.think().then(thought => {
+                    console.log('thought successful');
+                    this.twitterClient.post(thought).then(res => {
+                        console.log('post successful');
+
+                    }, err => {
+                        throw "thought error";
+                    });
+                }).catch(err => {
+                    console.log(err);
+                    res.status(500).send(err);
                 });
-            }).catch(err => {
-                console.log(err);
-                res.send(err);
-            })
+            });
+
+            let result = await thinkPromise;
+            res.status(200).send('twitter status updated');
         });
 
         return router;
