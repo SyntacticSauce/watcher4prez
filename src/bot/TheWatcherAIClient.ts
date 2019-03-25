@@ -74,8 +74,12 @@ class TheWatcherAIClient {
 
         router.post('/', (req, res) => {
             this.think().then(thought => {
+                console.log('thought successful');
                 this.twitterClient.post(thought).then(res=>{
+                    console.log('post successful');
                     res.status(200).send('twitter status updated');
+                }, err=>{
+                    throw "thought error";
                 });
             }).catch(err => {
                 console.log(err);
