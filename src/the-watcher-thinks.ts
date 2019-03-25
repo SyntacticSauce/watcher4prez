@@ -2,9 +2,10 @@ const https = require('https');
 
 function twitterUpdate() {
     console.log('tweeting....');
-	https.get({
-        hostname: 'https://ooami-twitter-bot.herokuapp.com',
+	https.request({
+        hostname: 'ooami-twitter-bot.herokuapp.com',
         path: "/api/thewatcher",
+        method: 'POST',
         agent: false  // Create a new agent just for this one request
     }, (res) => {
         console.log('twitter updated');
